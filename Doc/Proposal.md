@@ -52,29 +52,29 @@ D2["Perform Data Deduplication"] --- D
 E1["Create visual representation"] --- E       
 ~~~
 
-(1) **Define the Scope and Keywords**:
+**(1) Define the Scope and Keywords**:
 
-This initial step involves identifying key events and milestones relevant to the project (A1) and determining relevant keywords and hashtags (A2). These elements are essential to set the boundaries and focus for data collection.
+This initial step involves identifying key events and milestones relevant to the project and determining relevant keywords and hashtags. These elements are essential to set the boundaries and focus for data collection.
 
-(2) **Data Collection**:
+**(2) Data Collection**:
 
-Data is gathered by crawling websites (B1) and applying data filtering techniques (B2) to ensure the relevance of the collected information. The collected data then undergoes preprocessing to become organized data (F).
+Data is gathered by crawling websites and applying data filtering techniques to ensure the relevance of the collected information. The collected data then undergoes preprocessing to become organized data.
 
-(3) **Organized Data**:
+**(3) Organized Data**:
 
 After preprocessing, the data becomes structured, making it ready for further analysis.
 
-(4) **Event Detection**:
+**(4) Event Detection**:
 
-Event detection algorithms are implemented on the organized data. This step involves applying specific algorithms to identify and categorize significant events within the data (C).
+Event detection algorithms are implemented on the organized data. This step involves applying specific algorithms to identify and categorize significant events within the data.
 
-(5) **Timeline Generation**:
+**(5) Timeline Generation**:
 
-For the timeline generation, node information is included (D1) and data deduplication is performed (D2) to ensure accuracy and clarity of the resulting timeline (D).
+For the timeline generation, node information is included and data deduplication is performed to ensure accuracy and clarity of the resulting timeline.
 
-(6) **Visualization**:
+**(6) Visualization**:
 
-Finally, a visual representation of the timeline is created (E1), enabling easy interpretation and presentation of the information (E).
+Finally, a visual representation of the timeline is created, enabling easy interpretation and presentation of the information.
 
 ### 3.2 Tools and Technologies
 
