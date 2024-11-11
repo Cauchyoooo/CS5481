@@ -7,6 +7,8 @@ data_dir = '../../Data_Collect/Data/'
 
 raw_data = []
 
+cache = open('../Data/news_cache.json', 'w')
+
 llm = OpenAI(
     base_url='http://localhost:11434/v1',
     api_key='ollama'
@@ -46,19 +48,24 @@ def news_tag_relevance():
     intrested_data = []
     counter = 1
     for entry in raw_data:
-        messages = [
-            {"role": "system", "content": prompt.US_PRESIDENTIAL_ELECTION_BG},
-            {"role": "system", "content": prompt.NEWS_TAG_RELEVANCE},
-            {"role": "user", "content": f"{json.dumps(entry)}"}
-        ]
-        print("#" * 15 + f'{counter}/{len(raw_data)}' + "#" * 15)
-        print(entry.get('title'))
-        response = json.loads(get_llm_response(messages))
-        print(response)
-        relevance_score = int(response.get('relevance_score', 0))
-        if relevance_score > 2.5:
-            intrested_data.append(entry)
-        counter += 1
+        try:
+            messages = [
+                {"role": "system", "content": prompt.US_PRESIDENTIAL_ELECTION_BG},
+                {"role": "system", "content": prompt.NEWS_TAG_RELEVANCE},
+                {"role": "user", "content": f"{json.dumps(entry)}"}
+            ]
+            print("#" * 15 + f'{counter}/{len(raw_data)}' + "#" * 15)
+            print(entry.get('title'))
+            response = json.loads(get_llm_response(messages))
+            print(response)
+            relevance_score = int(response.get('relevance_score', 0))
+            if relevance_score > 2.5:
+                intrested_data.append(entry)
+                cache.write(entry)
+                cache.write(',\n')
+            counter += 1
+        except Exception:
+            continue
     return intrested_data
 
 def save(data):
