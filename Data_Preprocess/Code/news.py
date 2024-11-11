@@ -7,7 +7,7 @@ data_dir = '../../Data_Collect/Data/'
 
 raw_data = []
 
-cache = open('../Data/news_cache.json', 'w')
+cache = open('../Data/news_cache.json', 'a')
 
 llm = OpenAI(
     base_url='http://localhost:11434/v1',
@@ -61,10 +61,12 @@ def news_tag_relevance():
             relevance_score = int(response.get('relevance_score', 0))
             if relevance_score > 2.5:
                 intrested_data.append(entry)
-                cache.write(entry)
+                cache.write(json.dumps(entry))
                 cache.write(',\n')
             counter += 1
-        except Exception:
+        except Exception as e:
+            import traceback
+            print(traceback.format_exc())
             continue
     return intrested_data
 
