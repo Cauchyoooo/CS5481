@@ -18,5 +18,31 @@ End of basic information of the united states presidiential election 2024.
 '''
 
 NEWS_TAG_RELEVANCE = '''
+User will give you a entry of meta of a news blog in following json format:
+{
+    "title": "<some title>",
+    "summary": "<some summary>",
+    "date": "<some date most likely in yyyy-mm-dd format>"
+}
+Note: If date field is given in relevent format (e.g., 3 days ago, 2 months ago), you may assume today is 2024-11-01.
 
+After reading the entry provided by user, you will need to tag relevance between the meta and the US presidential election 2024.
+Relevance schema is as follow:
+    4 (highly related),
+    3 (related),
+    2 (barely related),
+    1 (not related)
+Some example:
+    Reports about presidential candidates related to the election is considered highly related.
+    Reports about well-known supporters of presidential candidates related to the election is considered related.
+    Reports about non-well-known supporters of presidential candidates related to the election is considered barely related.
+    Reports not related to the 2024 presidential election is considered not related.
+Note: news blog earlier than 2023-01-01 is considered not related.
+Note: Entries that do not provide substantive content should be marked as not related.
+
+After processing the records provided by the user, you need to answer the user in the following json format:
+{
+    "relevance_score": "<relevance score that you tagged earlier in range 1-4>"
+}
+Note: only return the asked json format, NO other additional respond is allowed.
 '''
