@@ -2,12 +2,15 @@ import json
 import nltk
 from nltk.corpus import stopwords
 from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.tokenize import word_tokenize
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 # 确保下载 nltk 停用词和 VADER 词典
 nltk.download('stopwords')
 nltk.download('vader_lexicon')
+nltk.download('punkt')  # 确保下载 punkt 数据包
+nltk.download('punkt_tab')  # 确保下载 punkt_tab 数据包
 
 # 创建情绪分析器
 sia = SentimentIntensityAnalyzer()
@@ -54,8 +57,8 @@ for item in data:
 trump_texts = [item['title'] + " " + item['summary'] for item in trump_data]
 trump_keywords = []
 for text in trump_texts:
-    # 分词和小写化
-    words = text.lower().split()
+    # 使用 word_tokenize 进行分词
+    words = word_tokenize(text.lower())
     words = [word for word in words if word.isalpha() and word not in stop_words]
 
     # 提取情绪相关的关键词
@@ -70,8 +73,8 @@ trump_unique_keywords = set([word for word, score in trump_keywords])
 harris_texts = [item['title'] + " " + item['summary'] for item in harris_data]
 harris_keywords = []
 for text in harris_texts:
-    # 分词和小写化
-    words = text.lower().split()
+    # 使用 word_tokenize 进行分词
+    words = word_tokenize(text.lower())
     words = [word for word in words if word.isalpha() and word not in stop_words]
 
     # 提取情绪相关的关键词
@@ -90,7 +93,7 @@ print("Harris Keywords:", harris_unique_keywords)
 def generate_wordcloud(keywords, name, related_texts):
     word_freq = {}
     for text in related_texts:
-        for word in text.lower().split():
+        for word in word_tokenize(text.lower()):
             if word in keywords:
                 if word in word_freq:
                     word_freq[word] += 1
