@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      width: 800px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div style="display: flex">
+      <div>
+        <p class="title">
+          Population density distribution map of the United States
+        </p>
+        <div style="display: flex; justify-items: center; align-items: center">
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+      <div>
+        <p class="title">
+          Results of the U.S. Election 2024
+        </p>
+        <div style="display: flex; justify-items: center; align-items: center">
+          <canvas id="canvas-res"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 16px">
+    <div>
+      <p class="title">The voting results for the Democratic Party</p>
+      <div style="display: flex; justify-items: center; align-items: center">
+        <canvas id="canvas-dem"></canvas>
+      </div>
+    </div>
+    <div>
+      <p class="title">The voting results for the Republican Party</p>
+      <div style="display: flex; justify-items: center; align-items: center">
+        <canvas id="canvas-rep"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 16px">
+    <div>
+      <p class="title">Results of the U.S. Election 2020</p>
+      <div style="display: flex; justify-items: center; align-items: center">
+        <canvas id="canvas-election2020"></canvas>
+      </div>
+    </div>
+    <div>
+      <p class="title">The Voting Results Change: 2020 vs 2024</p>
+      <div style="display: flex; justify-items: center; align-items: center">
+        <canvas id="canvas-change-rep"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 16px">
+    <div>
+      <p class="title">The Economic Situation of the US (2023 US GDP per capital) </p>
+      <div style="display: flex; justify-items: center; align-items: center">
+        <canvas id="canvas-gdp">
+        </canvas>
+      </div>
+    </div>
+    <div>
+      <p class="title">The Voting Results Change: 2020 vs 2024</p>
+      <div style="display: flex; justify-items: center; align-items: center">
+        <canvas id="canvas-change-dem"></canvas>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+</body>
+<script type="module" src="main.js"></script>
+
+</html>
